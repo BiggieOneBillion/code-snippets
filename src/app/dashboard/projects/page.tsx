@@ -11,7 +11,7 @@ export default async function ProjectsPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="ml-[10rem]">
       <ProjectList />
     </div>
   );

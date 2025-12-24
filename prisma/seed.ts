@@ -22,6 +22,14 @@ async function main() {
     },
   });
 
+  const user22 = await prisma.user.create({
+    data: {
+      email: 'pappy.kay9@gmail.com',
+      name: 'Pappy Kay',
+      password: hashedPassword,
+    },
+  });
+
   const user2 = await prisma.user.create({
     data: {
       email: 'bob@example.com',
@@ -46,6 +54,14 @@ async function main() {
       name: 'React Hooks Collection',
       description: 'A collection of custom React hooks for common use cases',
       userId: user1.id,
+    },
+  });
+
+  const pappyProject22 = await prisma.project.create({
+    data: {
+      name: 'React Hooks Collection',
+      description: 'A collection of custom React hooks for common use cases',
+      userId: user22.id,
     },
   });
 
@@ -196,6 +212,63 @@ For large datasets, always implement pagination:
       isPublic: true,
       projectId: aliceProject2.id,
       userId: user1.id,
+    },
+  });
+
+  await prisma.entry.create({
+    data: {
+      title: 'REST API Best Practices',
+      content: `# REST API Best Practices
+
+## 1. Use Proper HTTP Methods
+
+- **GET**: Retrieve resources
+- **POST**: Create new resources
+- **PUT**: Update entire resources
+- **PATCH**: Partial updates
+- **DELETE**: Remove resources
+
+## 2. Use Meaningful Resource Names
+
+\`\`\`
+✅ Good: /api/users/123/posts
+❌ Bad: /api/getUserPosts?id=123
+\`\`\`
+
+## 3. Version Your API
+
+Always version your API to maintain backward compatibility:
+
+\`\`\`
+/api/v1/users
+/api/v2/users
+\`\`\`
+
+## 4. Use Proper Status Codes
+
+- **200**: Success
+- **201**: Created
+- **400**: Bad Request
+- **401**: Unauthorized
+- **404**: Not Found
+- **500**: Server Error
+
+## 5. Implement Pagination
+
+For large datasets, always implement pagination:
+
+\`\`\`json
+{
+  "data": [...],
+  "page": 1,
+  "pageSize": 20,
+  "total": 100
+}
+\`\`\``,
+      type: 'MARKDOWN',
+      isPublic: true,
+      projectId: pappyProject22.id,
+      userId: user22.id,
     },
   });
 
@@ -377,6 +450,30 @@ emitter.on('userLoggedIn', ({ userId, timestamp }) => {
       isPublic: false,
       projectId: aliceProject2.id,
       userId: user1.id,
+    },
+  });
+
+    // Create some private entries
+  await prisma.entry.create({
+    data: {
+      title: 'Private Notes - Authentication Flow',
+      content: `# Authentication Implementation Notes
+
+## TODO
+- [ ] Implement password reset functionality
+- [ ] Add email verification
+- [ ] Set up 2FA
+- [ ] Add OAuth providers (Google, GitHub)
+
+## Security Considerations
+- Use bcrypt with salt rounds >= 10
+- Implement rate limiting on login attempts
+- Store JWT tokens securely
+- Use httpOnly cookies for session management`,
+      type: 'MARKDOWN',
+      isPublic: false,
+      projectId: pappyProject22.id,
+      userId: user22.id,
     },
   });
 
