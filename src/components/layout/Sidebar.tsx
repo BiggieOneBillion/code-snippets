@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { signOut } from 'next-auth/react';
+import ThemeToggle from '@/components/theme/ThemeToggle';
 
 // Simple icon components
 const HomeIcon = ({ className }: { className?: string }) => (
@@ -113,8 +114,9 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
             })}
           </nav>
 
-          {/* Sign Out */}
-          <div className="p-3 md:p-4 border-t border-border">
+          {/* Sign Out & Theme Toggle */}
+          <div className="p-3 md:p-4 border-t border-border space-y-2">
+            <ThemeToggle />
             <button
               onClick={handleSignOut}
               className="flex items-center gap-3 px-3 py-2.5 rounded-lg w-full text-foreground-secondary hover:bg-surface hover:text-error transition-all duration-200 text-sm"

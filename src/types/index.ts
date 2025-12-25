@@ -1,4 +1,4 @@
-import { User, Project, Entry } from '@prisma/client';
+import type { User, Project, Entry } from '@prisma/client';
 
 export type { User, Project, Entry };
 

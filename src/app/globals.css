@@ -4,7 +4,9 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap'); */
 
-:root {
+/* Dark Mode (Default) */
+:root,
+[data-theme='dark'] {
   /* Color Palette - Vibrant & Modern */
   --primary: #6366f1;
   --primary-dark: #4f46e5;
@@ -58,6 +60,61 @@
   --radius-xl: 1.5rem;
 }
 
+/* Light Mode */
+[data-theme='light'] {
+  /* Color Palette - Softer for Light Mode */
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --primary-light: #6366f1;
+  --secondary: #db2777;
+  --secondary-dark: #be185d;
+  --accent: #0d9488;
+  --accent-dark: #115e59;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --gradient-secondary: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  --gradient-warm: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+  --gradient-cool: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+  
+  /* Background Colors */
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  --surface: rgba(0, 0, 0, 0.05);
+  --surface-hover: rgba(0, 0, 0, 0.08);
+  
+  /* Text Colors */
+  --foreground: #1e293b;
+  --foreground-secondary: #64748b;
+  --foreground-muted: #94a3b8;
+  
+  /* Border & Divider */
+  --border: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  
+  /* Status Colors */
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #2563eb;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.2);
+  
+  /* Spacing */
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -66,6 +123,7 @@
 
 html {
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -77,6 +135,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Tailwind Utility Classes for Custom Colors */
