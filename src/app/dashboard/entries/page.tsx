@@ -10,5 +10,8 @@ export default async function EntriesPage() {
     redirect('/auth/signin');
   }
 
-  return <EntriesManager />;
+  return( <div className='ml-[10rem]'>
+<EntriesManager />
+  </div>);
+  
 }
